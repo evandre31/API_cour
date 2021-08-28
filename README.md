@@ -15,3 +15,7 @@
 
 # djangorestframework
     pip install djangorestframework  //installation
+
+
+    E:\api\API_cour\readme\Piece d identite.jpg
+    readme\Piece d identite.jpg
