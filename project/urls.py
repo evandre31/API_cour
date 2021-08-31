@@ -14,43 +14,44 @@ router.register('reservations', views.viewsets_reservation)
 
 
 urlpatterns = [
+    # tutorial tickets python arabia 
     path('admin/', admin.site.urls),
     #1
-    path('django/jsonresponsenomodel', views.no_rest_no_model),
+    path('pythonarabia/django/jsonresponsenomodel', views.no_rest_no_model),
 
     #2
-    path('django/jsonresponsefrommodel', views.no_rest_from_model),
+    path('pythonarabia/django/jsonresponsefrommodel', views.no_rest_from_model),
 
     #3.1 GET POST from rest FBV @api_view
-    path('rest/fbv', views.FBV_List),
+    path('pythonarabia/rest/fbv', views.FBV_List),
 
     #3.2 GET PUT DELETE  from rest FBV @api_view
-    path('rest/fbv/<int:pk>', views.FBV_pk),
+    path('pythonarabia/rest/fbv/<int:pk>', views.FBV_pk),
 
     #4.1 GET POST  from rest CBV APIView
-    path('rest/cbv', views.CBV_List.as_view()),
+    path('pythonarabia/rest/cbv', views.CBV_List.as_view()),
 
     #4.2 GET PUT DELETE  from rest CBV APIView
-    path('rest/cbv/<int:pk>', views.CBV_pk.as_view()),
+    path('pythonarabia/rest/cbv/<int:pk>', views.CBV_pk.as_view()),
     
     #5.1 GET POST  from rest CBV mixins
-    path('rest/mixins', views.mixins_list.as_view()),
+    path('pythonarabia/rest/mixins', views.mixins_list.as_view()),
 
     #5.2 GET PUT DELETE  from rest CBV mixins
     path('rest/mixins/<int:pk>', views.mixins_pk.as_view()),
 
     #6.1 GET POST  from rest CBV generics
-    path('rest/generics', views.generics_list.as_view()),
+    path('pythonarabia/rest/generics', views.generics_list.as_view()),
 
     #6.2 GET PUT DELETE  from rest CBV generics
-    path('rest/generics/<int:pk>', views.generics_pk.as_view()),
+    path('pythonarabia/rest/generics/<int:pk>', views.generics_pk.as_view()),
 
     #7 list post  GET PUT DELETE  from rest CBV viewsets
-    path('rest/viewsets/', include(router.urls)),
+    path('pythonarabia/rest/viewsets/', include(router.urls)),
 
     #8 find movie  from rest FBV 
-    path('rest/fbv/findmovie', views.find_movie),
+    path('pythonarabia/rest/fbv/findmovie', views.find_movie),
 
     #8 new reservation  from rest FBV 
-    path('rest/fbv/newreservation', views.new_reservation)
+    path('pythonarabia/rest/fbv/newreservation', views.new_reservation)
 ]

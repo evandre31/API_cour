@@ -86,16 +86,17 @@ def FBV_pk(request, pk):
 # 4 CBV
 # 4.1 GET POST == list and create
 class CBV_List(APIView):
-    def get(self, request):
+    def get(self, request, *args, **kwargs):
         guest = Guest.objects.all()
         serializer = GuestSerializer(guest, many=True)
         return Response(serializer.data)
-    def post(self, request):
+    def post(self, request, *args, **kwargs):
         serializer = GuestSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
-        return Response(serializer.data, status=status.HTTP_400_BAD_REQUEST)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST) 
+                     # (serializer.data) ////////  ca retourne erreur 
 
 # 4.2 GET PUT DELETE == retrive update delete ---  pk
 class CBV_pk(APIView):
