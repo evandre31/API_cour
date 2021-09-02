@@ -12,6 +12,9 @@ from rest_framework import status, filters
 from rest_framework.response import Response
 from rest_framework import generics, mixins, viewsets
 
+from rest_framework.authentication import BasicAuthentication, TokenAuthentication 
+from rest_framework.permissions import IsAuthenticated
+
 # Create your views here.
 # 1 sans rest et sans model query ... fbv
 def no_rest_no_model(request):
@@ -148,6 +151,8 @@ class mixins_pk(mixins.RetrieveModelMixin, mixins.UpdateModelMixin, mixins.Destr
 class generics_list(generics.ListCreateAPIView):
     queryset = Guest.objects.all()
     serializer_class = GuestSerializer
+    authentication_classes = [BasicAuthentication]
+    permission_classes = [IsAuthenticated]
 
 # 6.2 generics get put delete
 class generics_pk(generics.RetrieveUpdateDestroyAPIView):
