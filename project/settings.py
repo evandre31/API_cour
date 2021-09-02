@@ -48,8 +48,9 @@ INSTALLED_APPS = [
 
 # mes AJOUT: paramettre de rest_framework
 REST_FRAMEWORK = {
-
-}
+    'DEFAULT_AUTHENTICATION_CLASSES':['rest_framework.authentication.BasicAuthentication',], # authnentication basique = username et password
+    'DEFAULT_PERMISSION_CLASSES': ['rest_framework.permissions.IsAuthenticated',] # permission
+} # AllowAny \\ IsAuthenticated \\ IsAdminuser \\ IsAuthenticatedReadOnly
 
 
 MIDDLEWARE = [
