@@ -13,9 +13,10 @@
     django-admin startproject project .
     django-admin startapp app
 
+# django-cors-headers
+    pip install django-cors-headers  // django autorise a echanger data avec les apps tiers
+
 # djangorestframework
     pip install djangorestframework  //installation
-
-
     E:\api\API_cour\readme\Piece d identite.jpg
     readme\Piece d identite.jpg
