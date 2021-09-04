@@ -48,12 +48,6 @@ INSTALLED_APPS = [
     # FIN AJOUT:
 ]
 
-# mes AJOUT: paramettre de rest_framework
-REST_FRAMEWORK = {
-    'DEFAULT_AUTHENTICATION_CLASSES':['rest_framework.authentication.BasicAuthentication',], # authnentication basique = username et password
-    'DEFAULT_PERMISSION_CLASSES': ['rest_framework.permissions.AllowAny',] # permission
-} # AllowAny \\ IsAuthenticated \\ IsAdminuser \\ IsAuthenticatedReadOnly # FIN AJOUT:
-
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -141,6 +135,13 @@ STATIC_URL = '/static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+# mes AJOUT: paramettre de rest_framework
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES':['rest_framework.authentication.BasicAuthentication',# authnentication basique = username et password
+        'rest_framework.authentication.SessionAuthentication' # ajout session pour que api-auth fonctionne 
+        ],
+    'DEFAULT_PERMISSION_CLASSES': ['rest_framework.permissions.IsAuthenticatedOrReadOnly',] # permission globale
+} # AllowAny \\ IsAuthenticated \\ IsAdminuser \\ IsAuthenticatedOrReadOnly # FIN AJOUT:
 
 # mes AJOUT:  corsheaders
 CORS_ALLOWED_ORIGINS = [
