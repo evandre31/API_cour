@@ -137,10 +137,11 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # mes AJOUT: paramettre de rest_framework
 REST_FRAMEWORK = {
-    'DEFAULT_AUTHENTICATION_CLASSES':['rest_framework.authentication.BasicAuthentication',# authnentication basique = username et password
-        'rest_framework.authentication.SessionAuthentication' # ajout session pour que api-auth fonctionne 
-        ],
-    'DEFAULT_PERMISSION_CLASSES': ['rest_framework.permissions.IsAuthenticatedOrReadOnly',] # permission globale
+    # 'DEFAULT_AUTHENTICATION_CLASSES':['rest_framework.authentication.BasicAuthentication',# authnentication basique = username et password
+    #     'rest_framework.authentication.SessionAuthentication' # ajout session pour que api-auth fonctionne 
+    #     ],
+    'DEFAULT_AUTHENTICATION_CLASSES': ('rest_framework_simplejwt.authentication.JWTAuthentication',),
+    'DEFAULT_PERMISSION_CLASSES': ['rest_framework.permissions.AllowAny',] # permission globale
 } # AllowAny \\ IsAuthenticated \\ IsAdminuser \\ IsAuthenticatedOrReadOnly # FIN AJOUT:
 
 # mes AJOUT:  corsheaders
