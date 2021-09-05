@@ -21,7 +21,7 @@ class CustomUserCreate(APIView):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
-""" class BlacklistTokenUpdateView(APIView):
+class BlacklistTokenUpdateView(APIView):
     permission_classes = [AllowAny]
     authentication_classes = ()
 
@@ -32,4 +32,4 @@ class CustomUserCreate(APIView):
             token.blacklist()
             return Response(status=status.HTTP_205_RESET_CONTENT)
         except Exception as e:
-            return Response(status=status.HTTP_400_BAD_REQUEST) """
+            return Response(status=status.HTTP_400_BAD_REQUEST)

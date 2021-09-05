@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'blog_api',
     'corsheaders',
     'users',
+    'rest_framework_simplejwt.token_blacklist', # lors logout , le token sera dans blacklist table
     # tutorial tickets python arabia 
     'tickets',
     # FIN AJOUT:

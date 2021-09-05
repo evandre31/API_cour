@@ -12,7 +12,7 @@ class PostUserWritePermission(BasePermission):
         return obj.author == request.user
 
 class PostList(generics.ListCreateAPIView):
-    permission_classes = [DjangoModelPermissions] # views permission like IsAdminUser..........
+    permission_classes = [DjangoModelPermissionsOrAnonReadOnly] # views permission like IsAdminUser..........
     queryset = Post.postobjects.all() # ou postobjects notre manager au lieu de objects
     serializer_class = PostSerializer
         # DjangoModelPermissionsOrAnonReadOnly # permission model django = qu'on etabli dans admin=>group=>user
