@@ -18,6 +18,8 @@ urlpatterns = [
     # blog of very-academy
     path('blog/', include('blog.urls',namespace='blog')), # tutorial blog Very Academy 
     path('blog_api/', include('blog_api.urls',namespace='blog_api')), # tutorial blog Very Academy 
+    path('blog/user/', include('users.urls', namespace='users')),
+
     # rest_framework_simplejwt
     path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
